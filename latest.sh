@@ -133,6 +133,14 @@ case "$filetype" in
   "sh" ) bash -- "$tmp_dir/$filename" 2>/dev/null ;;
 esac
 
+echo "Installing build essential, installing Chef 12.4.4"
+case "$filetype" in
+  "sh" )
+    pkgin -y in build-essential
+    /opt/chef/embedded/bin/gem install chef --version 12.4.4 --no-ri --no-rdoc 2>/dev/null
+    ;;
+esac
+
 if [ "$tmp_dir" != "/tmp" ];
 then
   rm -r "$tmp_dir"
