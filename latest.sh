@@ -137,7 +137,6 @@ echo "Installing build essential, installing Chef version 12.4.3"
 case "$filetype" in
   "sh" )
     pkgin -y in build-essential
-    /opt/chef/embedded/bin/gem install chef --version version 12.4.3  --no-ri --no-rdoc 2>/dev/null
     ;;
 esac
 
