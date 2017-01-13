@@ -84,7 +84,7 @@ echo "Downloading Chef $version for ${platform}..."
 #url="https://www.opscode.com/chef/download?v=${version}&prerelease=${prerelease}&p=${platform}&pv=${platform_version}&m=${machine}"
 
 
-url="https://us-east.manta.joyent.com/wanelo/public/cache/chef/omnibus/smartos-base64-lts-0.0.0+20170112224805_1.i86pc.sh"
+url="//us-east.manta.joyent.com/wanelo/public/cache/chef/omnibus/chef-11.6.0_0.smartos.5.11.sh"
 
 tmp_dir=$(mktemp -d -t tmp.XXXXXXXX || echo "/tmp")
 
@@ -133,11 +133,11 @@ case "$filetype" in
   "sh" ) bash -- "$tmp_dir/$filename" 2>/dev/null ;;
 esac
 
-echo "Installing build essential, installing Chef 12.4.4"
+echo "Installing build essential, installing Chef version 11.16.4 "
 case "$filetype" in
   "sh" )
     pkgin -y in build-essential
-    /opt/chef/embedded/bin/gem install chef --version 12.4.4 --no-ri --no-rdoc 2>/dev/null
+    /opt/chef/embedded/bin/gem install chef --version version 11.16.4  --no-ri --no-rdoc 2>/dev/null
     ;;
 esac
 
